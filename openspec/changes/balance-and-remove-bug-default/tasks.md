@@ -27,4 +27,4 @@
 
 ## 6. 更新文件
 
-- [ ] 6.1 更新 `README.md`：新配置表、職業說明（GA 只知 1 個、Engineer 模糊、AC Follower 計入船員）
+- [x] 6.1 更新 `README.md`：新配置表、職業說明（GA 只知 1 個、Engineer 模糊、AC Follower 計入船員）
