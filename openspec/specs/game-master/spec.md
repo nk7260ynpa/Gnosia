@@ -75,3 +75,51 @@ GM SHALL 在對話 context 中追蹤完整遊戲狀態。
 #### Scenario: 夜間行動後檢查
 - **WHEN** 夜間行動結果解析完成後
 - **THEN** GM SHALL 立即檢查勝負條件
+
+### Requirement: 可變人數初始化
+
+GM SHALL 支援 5-15 人局。預設為 5 人局，可透過指令參數指定人數。
+
+#### Scenario: 預設人數
+- **WHEN** 使用者輸入 `/gnosia` 不帶參數
+- **THEN** GM SHALL 啟動 5 人局
+
+#### Scenario: 指定人數
+- **WHEN** 使用者輸入 `/gnosia 7`
+- **THEN** GM SHALL 啟動 7 人局，從角色池隨機選取 7 個角色
+
+### Requirement: AC Follower 勝利宣告
+
+#### Scenario: AC Follower 被投票淘汰時
+- **WHEN** AC Follower 被投票淘汰
+- **THEN** GM SHALL 在冷凍睡眠宣告後額外顯示「AC Follower 個人勝利！」，遊戲繼續
+
+### Requirement: Bug 勝利宣告
+
+#### Scenario: 遊戲結束時 Bug 存活
+- **WHEN** 遊戲結束且 Bug 仍然存活
+- **THEN** GM SHALL 在結局中額外顯示「Bug 個人勝利！」
+
+### Requirement: 可變人數參數
+
+GM SHALL 接受 5-15 的人數參數。
+
+#### Scenario: 人數範圍驗證
+- **WHEN** 使用者輸入 `/gnosia N`，N 超出 5-15 範圍
+- **THEN** GM SHALL 提示「人數必須在 5-15 之間」並使用預設 5 人
+
+### Requirement: 討論摘要機制
+
+#### Scenario: 大型局討論記錄傳遞
+- **WHEN** 人數 >= 10 且需要傳遞過往討論給 agent
+- **THEN** GM SHALL 使用摘要（而非完整記錄）傳遞過往討論，避免 prompt 過長
+
+### Requirement: 多重保護判定
+
+#### Scenario: 2 Doctor 保護不同目標
+- **WHEN** 2 個 Doctor 保護不同目標且 Gnosia 攻擊其中一個被保護的目標
+- **THEN** 攻擊被擋，無人死亡
+
+#### Scenario: 2 Doctor 保護相同目標
+- **WHEN** 2 個 Doctor 保護相同目標
+- **THEN** 效果等同 1 個 Doctor 保護（不疊加）
