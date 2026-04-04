@@ -1,4 +1,4 @@
-## ADDED Requirements
+## Requirements
 
 ### Requirement: Agent 定義檔規格
 
@@ -16,7 +16,7 @@
 
 ### Requirement: 角色配置
 
-系統 SHALL 定義 5 個角色 agent：
+系統 SHALL 定義 15 個角色 agent：
 
 | 角色 | 檔案名 | 顏色 | 標記 |
 |------|--------|------|------|
@@ -25,6 +25,20 @@
 | ジナ | gina.md | green | 🟢 |
 | コメット | comet.md | yellow | 🟡 |
 | SQ | sq.md | magenta | 🟣 |
+| シピ | shipi.md | cyan | 🩵 |
+| ステラ | stella.md | red | 🟠 |
+| レムナン | remnant.md | green | ⚪ |
+| ジョナス | jonas.md | blue | 🫐 |
+| オトメ | otome.md | red | 🔶 |
+| しげみち | shigemichi.md | green | 🟤 |
+| クク | kukrushka.md | yellow | 🌸 |
+| ラキ | raki.md | cyan | 🧊 |
+| シャ=ミン | sha-ming.md | magenta | 🌙 |
+| ユルグ | yurugu.md | red | 🔥 |
+
+#### Scenario: 角色 agent 數量
+- **WHEN** 列出所有可用角色 agent
+- **THEN** SHALL 有 15 個 agent 定義檔
 
 ### Requirement: セツ — 冷靜分析型
 
@@ -67,3 +81,19 @@
 #### Scenario: 角色被分配為船員
 - **WHEN** GM 傳入船員身份（Engineer/Doctor/Crew）
 - **THEN** 角色 SHALL 嘗試找出 Gnosia，MUST NOT 輕易透露特殊身份
+
+### Requirement: 新職業行為策略
+
+每個角色 agent SHALL 支援所有可能被分配的職業身份，包括新增的 Guardian Angel、AC Follower、Bug。
+
+#### Scenario: 角色被分配為 Guardian Angel
+- **WHEN** GM 傳入 Guardian Angel 身份（含 Gnosia 名單）
+- **THEN** 角色 SHALL 利用已知資訊暗示和引導討論，MUST NOT 直接宣稱知道 Gnosia 身份
+
+#### Scenario: 角色被分配為 AC Follower
+- **WHEN** GM 傳入 AC Follower 身份
+- **THEN** 角色 SHALL 故意讓自己顯得可疑，引導他人投票淘汰自己
+
+#### Scenario: 角色被分配為 Bug
+- **WHEN** GM 傳入 Bug 身份
+- **THEN** 角色 SHALL 盡量保持低調、附和多數意見、避免成為目標
