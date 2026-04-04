@@ -113,3 +113,19 @@ AC Follower 和 Bug SHALL 不計入船員或 Gnosia 的存活人數。
 #### Scenario: 勝負判定時的人數計算
 - **WHEN** 檢查 Gnosia 勝利條件（Gnosia >= 船員）
 - **THEN** AC Follower 和 Bug 的存活人數 MUST NOT 計入任何一方
+
+### Requirement: 討論輪數控制
+
+#### Scenario: 小型局討論
+- **WHEN** 人數為 5-7
+- **THEN** 討論 SHALL 進行 2 輪
+
+#### Scenario: 中大型局討論
+- **WHEN** 人數為 8-15
+- **THEN** 討論 SHALL 進行 1 輪
+
+### Requirement: Gnosia 攻擊代表制
+
+#### Scenario: 多 Gnosia 攻擊決策
+- **WHEN** 夜間階段且有多個 Gnosia 存活
+- **THEN** GM SHALL 僅呼叫 1 個 Gnosia agent（存活的第一個）做攻擊決策
