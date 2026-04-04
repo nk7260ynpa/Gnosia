@@ -14,31 +14,31 @@
 
 ## 3. 更新 GM 指令 — 角色配置
 
-- [ ] 3.1 更新 `gnosia.md` 角色對照表：新增シピ、ステラ、レムナン的 subagent_type 和標記
-- [ ] 3.2 新增人數配置表（5-8 人局）到 `gnosia.md`
-- [ ] 3.3 新增指令參數支援：`/gnosia [人數]`，預設 5 人
+- [x] 3.1 更新 `gnosia.md` 角色對照表：新增シピ、ステラ、レムナン的 subagent_type 和標記
+- [x] 3.2 新增人數配置表（5-8 人局）到 `gnosia.md`
+- [x] 3.3 新增指令參數支援：`/gnosia [人數]`，預設 5 人
 
 ## 4. 更新 GM 指令 — 新職業邏輯
 
-- [ ] 4.1 更新 `gnosia.md` 遊戲規則段落：新增 Guardian Angel / AC Follower / Bug 的說明
-- [ ] 4.2 新增 Guardian Angel 的討論 prompt 模板（含 Gnosia 身份資訊）
-- [ ] 4.3 新增 AC Follower 的討論 prompt 模板（含「讓自己被投票」的策略指示）
-- [ ] 4.4 新增 Bug 的討論 prompt 模板（含「保持低調」的策略指示）
-- [ ] 4.5 更新投票 prompt 模板：新增 Guardian Angel / AC Follower / Bug 的投票策略
+- [x] 4.1 更新 `gnosia.md` 遊戲規則段落：新增 Guardian Angel / AC Follower / Bug 的說明
+- [x] 4.2 新增 Guardian Angel 的討論 prompt 模板（含 Gnosia 身份資訊）
+- [x] 4.3 新增 AC Follower 的討論 prompt 模板（含「讓自己被投票」的策略指示）
+- [x] 4.4 新增 Bug 的討論 prompt 模板（含「保持低調」的策略指示）
+- [x] 4.5 更新投票 prompt 模板：新增 Guardian Angel / AC Follower / Bug 的投票策略
 
 ## 5. 更新 GM 指令 — 夜間行動與勝負
 
-- [ ] 5.1 更新夜間行動邏輯：Guardian Angel / AC Follower / Bug 無夜間行動
-- [ ] 5.2 更新勝負條件判定：AC Follower 和 Bug 不計入陣營人數
-- [ ] 5.3 新增 AC Follower 被投票淘汰時的勝利宣告
-- [ ] 5.4 新增 Bug 存活到結束時的勝利宣告
-- [ ] 5.5 更新結局輸出格式：支援多方勝利的顯示（主陣營 + 個人勝利）
+- [x] 5.1 更新夜間行動邏輯：Guardian Angel / AC Follower / Bug 無夜間行動
+- [x] 5.2 更新勝負條件判定：AC Follower 和 Bug 不計入陣營人數
+- [x] 5.3 新增 AC Follower 被投票淘汰時的勝利宣告
+- [x] 5.4 新增 Bug 存活到結束時的勝利宣告
+- [x] 5.5 更新結局輸出格式：支援多方勝利的顯示（主陣營 + 個人勝利）
 
 ## 6. 更新 GM 指令 — 資訊隔離
 
-- [ ] 6.1 新增 Guardian Angel 的資訊隔離規則到 `gnosia.md`
-- [ ] 6.2 確認 Gnosia prompt 不包含 Guardian Angel 知情的事實
-- [ ] 6.3 確認 AC Follower 和 Bug prompt 僅包含公開資訊
+- [x] 6.1 新增 Guardian Angel 的資訊隔離規則到 `gnosia.md`
+- [x] 6.2 確認 Gnosia prompt 不包含 Guardian Angel 知情的事實
+- [x] 6.3 確認 AC Follower 和 Bug prompt 僅包含公開資訊
 
 ## 7. 更新文件
 
