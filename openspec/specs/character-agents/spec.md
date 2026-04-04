@@ -16,7 +16,7 @@
 
 ### Requirement: 角色配置
 
-系統 SHALL 定義 8 個角色 agent：
+系統 SHALL 定義 15 個角色 agent：
 
 | 角色 | 檔案名 | 顏色 | 標記 |
 |------|--------|------|------|
@@ -28,10 +28,17 @@
 | シピ | shipi.md | cyan | 🩵 |
 | ステラ | stella.md | red | 🟠 |
 | レムナン | remnant.md | green | ⚪ |
+| ジョナス | jonas.md | blue | 🫐 |
+| オトメ | otome.md | red | 🔶 |
+| しげみち | shigemichi.md | green | 🟤 |
+| クク | kukrushka.md | yellow | 🌸 |
+| ラキ | raki.md | cyan | 🧊 |
+| シャ=ミン | sha-ming.md | magenta | 🌙 |
+| ユルグ | yurugu.md | red | 🔥 |
 
 #### Scenario: 角色 agent 數量
 - **WHEN** 列出所有可用角色 agent
-- **THEN** SHALL 有 8 個 agent 定義檔，每個包含完整的 frontmatter 和系統提示
+- **THEN** SHALL 有 15 個 agent 定義檔
 
 ### Requirement: セツ — 冷靜分析型
 
