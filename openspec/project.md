@@ -61,7 +61,10 @@
 
 | 規格 | 說明 | 狀態 |
 |------|------|------|
-| [game-rules](specs/game-rules/spec.md) | 遊戲規則與勝負條件 | active |
-| [character-agents](specs/character-agents/spec.md) | 角色 agent 定義規格 | active |
+| [game-rules](specs/game-rules/spec.md) | 遊戲規則與勝負條件（5-15 人局） | active |
+| [character-agents](specs/character-agents/spec.md) | 角色 agent 定義規格（15 角色） | active |
 | [game-master](specs/game-master/spec.md) | GM 流程控制與資訊隔離 | active |
 | [output-format](specs/output-format/spec.md) | 觀戰者輸出格式規範 | active |
+| [new-character-agents](specs/new-character-agents/spec.md) | 新增角色（シピ、ステラ、レムナン） | active |
+| [advanced-roles](specs/advanced-roles/spec.md) | 進階職業（Guardian Angel、AC Follower、Bug） | active |
+| [expanded-character-agents](specs/expanded-character-agents/spec.md) | 擴充角色（ジョナス等 7 人） | active |
