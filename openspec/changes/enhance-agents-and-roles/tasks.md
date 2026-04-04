@@ -6,11 +6,11 @@
 
 ## 2. 更新現有角色 Agent
 
-- [ ] 2.1 更新 `setsu.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
-- [ ] 2.2 更新 `raqio.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
-- [ ] 2.3 更新 `gina.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
-- [ ] 2.4 更新 `comet.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
-- [ ] 2.5 更新 `sq.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
+- [x] 2.1 更新 `setsu.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
+- [x] 2.2 更新 `raqio.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
+- [x] 2.3 更新 `gina.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
+- [x] 2.4 更新 `comet.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
+- [x] 2.5 更新 `sq.md`：新增 Guardian Angel / AC Follower / Bug 的行為策略段落
 
 ## 3. 更新 GM 指令 — 角色配置
 
