@@ -58,15 +58,14 @@
     │
     Claude Code（Game Master, opus）
     │
-    ├─ 階段 0：Launch 5 個持久 sonnet agent（每角色一個）
-    ├─ 討論階段：SendMessage 順序對話（後者能看到前者發言）
-    ├─ 投票階段：SendMessage 各自獨立投票
-    └─ 夜間階段：SendMessage 相關角色行動（資訊嚴格隔離）
+    ├─ 討論階段：順序 Launch 角色 agent（subagent_type: setsu/raqio/gina/comet/sq）
+    ├─ 投票階段：並行 Launch 角色 agent（各自獨立投票）
+    └─ 夜間階段：並行 Launch 角色 agent（資訊嚴格隔離）
 ```
 
-- **持久 Agent 架構**：每個角色在遊戲開始時建立一個 agent，整場遊戲透過 SendMessage 持續對話
-- 每個 agent 維持自己的記憶和上下文，性格表現更一致
-- 資訊隔離靠 GM 控制每次 SendMessage 傳入的內容
+- **獨立 Agent 架構**：每個角色有專屬的 agent 定義檔（`.claude/agents/*.md`）
+- 角色性格固定在 agent 定義中，遊戲身份由 GM 動態傳入
+- 資訊隔離靠 GM 控制傳入每個 agent 的 prompt 內容
 - 遊戲狀態在 GM 的對話 context 中自然維持
 
 ## 專案架構
@@ -74,8 +73,14 @@
 ```
 Gnosia/
 ├── .claude/
+│   ├── agents/
+│   │   ├── setsu.md        # 🔴 セツ — 冷靜分析型
+│   │   ├── raqio.md        # 🔵 ラキオ — 衝動攻擊型
+│   │   ├── gina.md         # 🟢 ジナ — 策略博弈型
+│   │   ├── comet.md        # 🟡 コメット — 感性直覺型
+│   │   └── sq.md           # 🟣 SQ — 神秘計算型
 │   └── commands/
-│       └── gnosia.md       # 遊戲主指令
+│       └── gnosia.md       # 遊戲主指令（GM）
 ├── plan/                    # 設計規格文件
 ├── .gitignore
 └── README.md
