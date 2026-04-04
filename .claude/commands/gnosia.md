@@ -27,6 +27,13 @@ argument-hint: [人數]
 | シピ | 🩵 | `shipi` | 老練世故型 |
 | ステラ | 🟠 | `stella` | 正義熱血型 |
 | レムナン | ⚪ | `remnant` | 沉默寡言型 |
+| ジョナス | 🫐 | `jonas` | 溫厚誠實型 |
+| オトメ | 🔶 | `otome` | 高傲自信型 |
+| しげみち | 🟤 | `shigemichi` | 憨厚老實型 |
+| クク | 🌸 | `kukrushka` | 天真無邪型 |
+| ラキ | 🧊 | `raki` | 冷淡疏離型 |
+| シャ=ミン | 🌙 | `sha-ming` | 圓融外交型 |
+| ユルグ | 🔥 | `yurugu` | 狂熱偏執型 |
 
 ---
 
@@ -34,12 +41,12 @@ argument-hint: [人數]
 
 ### 人數與參數
 
-- 預設 5 人局。使用者可透過 `$ARGUMENTS` 指定人數（5-8），例如 `/gnosia 7`。
-- 若 `$ARGUMENTS` 為空或無效，使用 5 人局。
+- 預設 5 人局。使用者可透過 `$ARGUMENTS` 指定人數（5-15），例如 `/gnosia 10`。
+- 若 `$ARGUMENTS` 為空或無效（不在 5-15 範圍），使用 5 人局。
 
 ### 角色配置表
 
-GM 根據人數從角色池（8 個角色）中隨機選取對應人數的角色，再隨機分配身份。
+GM 根據人數從角色池（15 個角色）中隨機選取對應人數的角色，再隨機分配身份。
 
 | 人數 | Gnosia | Engineer | Doctor | Guardian Angel | AC Follower | Bug | Crew |
 |------|--------|----------|--------|----------------|-------------|-----|------|
@@ -47,6 +54,13 @@ GM 根據人數從角色池（8 個角色）中隨機選取對應人數的角色
 | 6 | 2 | 1 | 1 | 1 | 0 | 0 | 1 |
 | 7 | 2 | 1 | 1 | 1 | 1 | 0 | 1 |
 | 8 | 2 | 1 | 1 | 1 | 1 | 1 | 1 |
+| 9 | 3 | 1 | 1 | 1 | 1 | 1 | 1 |
+| 10 | 3 | 2 | 1 | 1 | 1 | 1 | 1 |
+| 11 | 3 | 2 | 1 | 1 | 1 | 1 | 2 |
+| 12 | 3 | 2 | 2 | 1 | 1 | 1 | 2 |
+| 13 | 4 | 2 | 2 | 1 | 1 | 1 | 2 |
+| 14 | 4 | 2 | 2 | 1 | 1 | 1 | 3 |
+| 15 | 4 | 2 | 2 | 1 | 1 | 1 | 4 |
 
 ### 職業說明
 
@@ -91,8 +105,9 @@ GM 根據人數從角色池（8 個角色）中隨機選取對應人數的角色
 2. 第一天：宣佈「這是第一天，沒有夜間事件」
    非第一天：公佈夜間結果（是否有人被消滅）
 3. **檢查勝負條件**。若遊戲結束，跳到結局。
-4. 進行 2 輪討論（8 人局可縮減為 1 輪）：
-   - 每輪隨機決定發言順序，第二輪反轉第一輪順序
+4. 進行討論（5-7 人局 2 輪，8-15 人局 1 輪）：
+   - 每輪隨機決定發言順序，若有第二輪則反轉第一輪順序
+   - **10 人以上**：過往討論使用摘要而非完整記錄傳給 agent，避免 prompt 過長
    - **按順序** Launch 每個存活角色的 agent（使用 `subagent_type`）
    - 每個 agent 的 prompt 包含遊戲身份 + 狀態 + 本輪已發出的發言
    - 顯示每個角色的發言（加上彩色圓點標記）
@@ -173,9 +188,12 @@ GM 根據人數從角色池（8 個角色）中隨機選取對應人數的角色
 ### 階段 3：夜間行動
 
 1. 顯示夜間標題
-2. **僅** Launch 需要夜間行動的角色 agent（Gnosia、Engineer、Doctor）。Guardian Angel、AC Follower、Bug 無夜間行動。
+2. **僅** Launch 需要夜間行動的角色 agent。Guardian Angel、AC Follower、Bug 無夜間行動。
+   - **Gnosia 攻擊**：僅 Launch 存活的第 1 個 Gnosia agent（代表制），不論有幾個 Gnosia 存活
+   - **Engineer 掃描**：若有多個 Engineer，各自獨立 Launch 進行掃描
+   - **Doctor 保護**：若有多個 Doctor，各自獨立 Launch 進行保護
 
-**Gnosia 攻擊**（Launch 其中一個存活 Gnosia 的 agent）：
+**Gnosia 攻擊**（Launch 存活的第 1 個 Gnosia agent，代表全體決策）：
 
 ```
 ## 你的遊戲身份
@@ -234,9 +252,9 @@ GM 根據人數從角色池（8 個角色）中隨機選取對應人數的角色
 
 GM 自行解析（不需要 agent）：
 
-1. 若 Gnosia 攻擊目標 == Doctor 保護目標 → 攻擊被擋，無人死亡
+1. 若 Gnosia 攻擊目標被任一 Doctor 保護 → 攻擊被擋，無人死亡（多 Doctor 保護不同目標時，任一匹配即擋住）
 2. 否則 → 被攻擊者進入冷凍睡眠
-3. 記錄 Engineer 的掃描結果
+3. 記錄所有 Engineer 的掃描結果（多 Engineer 各自獨立）
 4. 向觀戰者展示上帝視角的夜間行動細節
 5. 回合數 +1
 6. **檢查勝負條件**（注意：AC Follower 和 Bug 不計入陣營人數）。若遊戲結束，跳到結局。
@@ -369,7 +387,7 @@ GM 自行解析（不需要 agent）：
 
 ## 執行注意事項
 
-1. **Agent 呼叫**：使用 `subagent_type` 指定角色 agent（setsu/raqio/gina/comet/sq/shipi/stella/remnant）。角色性格由 agent 定義檔提供，GM 只需傳入遊戲身份和狀態。
+1. **Agent 呼叫**：使用 `subagent_type` 指定角色 agent（setsu/raqio/gina/comet/sq/shipi/stella/remnant/jonas/otome/shigemichi/kukrushka/raki/sha-ming/yurugu）。角色性格由 agent 定義檔提供，GM 只需傳入遊戲身份和狀態。
 2. **隨機性**：角色選取和身份分配必須真正隨機，每次遊戲不同。
 3. **資訊隔離**：
    - Gnosia：prompt MUST NOT 包含 Engineer 掃描結果、Doctor 保護歷史、Guardian Angel 知道其身份的事實
