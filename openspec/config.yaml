@@ -1,0 +1,22 @@
+schema: spec-driven
+
+context: |
+  平台：Claude Code CLI
+  GM 模型：opus，角色 Agent 模型：sonnet
+  指令系統：.claude/commands/gnosia.md
+  Agent 系統：.claude/agents/*.md（setsu, raqio, gina, comet, sq）
+  語言：繁體中文（對話與文件）
+  開發規範：Conventional Commits, Google Markdown Style Guide
+
+rules:
+  proposal:
+    - 使用繁體中文
+    - 包含 Non-Goals 章節
+    - 說明對現有角色 agent 和 GM 流程的影響
+  tasks:
+    - 拆分為獨立可完成的單元
+    - 包含驗收標準
+    - 標注影響的檔案（gnosia.md 或 agents/*.md）
+  design:
+    - 說明對資訊隔離的影響
+    - 考量 Agent 調用量與效能
