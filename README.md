@@ -42,9 +42,9 @@
 | 職業 | 陣營 | 能力 |
 |------|------|------|
 | Gnosia | Gnosia | 夜間消滅一名船員；互知同伴身份 |
-| Engineer（工程師） | 船員 | 夜間掃描一名玩家（75% 得到結果，25% 無法判定） |
-| Doctor（醫生） | 船員 | 夜間保護一名玩家（不可連續兩夜同人） |
-| Guardian Angel（守護天使） | 船員 | 開局知道 **1 個隨機 Gnosia** 身份，但無夜間行動 |
+| Engineer（工程師） | 船員 | 夜間掃描一名玩家，100% 準確得知是否為 Gnosia |
+| Doctor（醫生） | 船員 | 夜間自動查看當日被投票淘汰者的陣營（是/不是 Gnosia） |
+| Guardian Angel（守護天使） | 船員 | 夜間保護一名玩家免於被消滅（無連續保護限制），可公開身份 |
 | AC Follower（AC 主義者） | 計入船員 | 勝利條件：被投票淘汰（淘汰時不公開身份） |
 | Bug（蟲） | 獨立 | 預設不加入。勝利條件：存活到遊戲結束 |
 | Crew（船員） | 船員 | 無特殊能力 |
@@ -63,7 +63,7 @@
     ↓
 投票（最高票進冷凍睡眠，平票跳過）
     ↓
-夜間行動（Gnosia 攻擊 / Engineer 掃描 / Doctor 保護）
+夜間行動（Gnosia 攻擊 / Engineer 掃描 / GA 保護 / Doctor 驗屍）
     ↓
 重複直到某方獲勝
 ```
@@ -99,7 +99,7 @@
     ├─ 依人數配置表分配職業
     ├─ 討論階段：順序 Launch 角色 agent（subagent_type）
     ├─ 投票階段：並行 Launch 角色 agent
-    └─ 夜間階段：Launch Gnosia/Engineer/Doctor agent（資訊隔離）
+    └─ 夜間階段：Launch Gnosia/Engineer/GA agent（資訊隔離，Doctor 驗屍自動處理）
 ```
 
 - **獨立 Agent 架構**：每個角色有專屬的 agent 定義檔（`.claude/agents/*.md`）

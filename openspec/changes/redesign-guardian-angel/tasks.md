@@ -27,4 +27,4 @@
 
 ## 5. 更新文件
 
-- [ ] 5.1 更新 `README.md`：GA 和 Doctor 新職業說明、Engineer 100%
+- [x] 5.1 更新 `README.md`：GA 和 Doctor 新職業說明、Engineer 100%
